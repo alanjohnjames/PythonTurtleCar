@@ -30,8 +30,6 @@ def make_wheel(radius, col):
     t.circle(radius)
     t.color(Colour.black)
 
-def rectangle(): pass
-
 def make_door(length, height, col):
     t.color(col)
     for i in range(2):
@@ -57,22 +55,29 @@ def make_roof(wheel_base, door_height):
 def make_car(wheel_base, wheel_radius, door_height):
     half_wheel_base = wheel_base/2
 
-    move_to_position(-half_wheel_base, 0) # Front wheel
+    # Front wheel
+    move_to_position(-half_wheel_base, 0)
     make_wheel(wheel_radius, Colour.red)
 
-    move_to_position(half_wheel_base + 2*wheel_radius, 0)  # Back wheel
+    # Back wheel
+    move_to_position(half_wheel_base + 2*wheel_radius, 0)  
     make_wheel(wheel_radius, Colour.blue)
 
+    # Front door
     move_to_position(0, 0)
-    make_door(half_wheel_base, door_height, Colour.blue)  # Front door
+    make_door(half_wheel_base, door_height, Colour.blue)  
 
+    # Back door
     move_to_position(half_wheel_base, 0)
-    make_door(half_wheel_base, door_height, Colour.red)  # Back door
+    make_door(half_wheel_base, door_height, Colour.red)  
 
     make_bonnet(wheel_base, door_height)
     make_boot(wheel_base, door_height, wheel_radius)
 
     make_roof(wheel_base, door_height)
 
-make_car(wheel_base=80, wheel_radius=20, door_height=40)
+# Big car
+make_car(wheel_base=100, wheel_radius=30, door_height=60)
 
+# Small car
+# make_car(wheel_base=80, wheel_radius=20, door_height=40)
