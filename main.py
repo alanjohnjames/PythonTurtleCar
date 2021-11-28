@@ -14,8 +14,8 @@ class Colour:
     black = 'black'
 
 def move_to_origin():
-    global t
-    t = turtle.Turtle()
+    t.penup()
+    t.home()
 
 def move_to_position(x,y):
     move_to_origin()
@@ -41,11 +41,14 @@ def make_door(length, height, col):
         t.left(90)
     t.color(Colour.black)
 
-def make_bonnet(x,y):
-    pass
+def make_bonnet(wheel_base, door_height):
+    move_to_position(-wheel_base/2, door_height)
+    t.left(90)
+    t.circle(door_height, 90)
 
-def make_boot(x,y):
-    pass
+def make_boot(wheel_base, door_height, wheel_radius):
+    move_to_position(wheel_base/2 + 2*wheel_radius, 0)
+    t.circle(door_height, 90)
 
 def make_roof(x,y):
     pass
@@ -65,5 +68,9 @@ def make_car(wheel_base, wheel_radius, door_height):
     move_to_position(half_wheel_base, 0)
     make_door(half_wheel_base, door_height, Colour.red)  # Back door
 
+    make_bonnet(wheel_base, door_height)
+    make_boot(wheel_base, door_height, wheel_radius)
+
 
 make_car(wheel_base=80, wheel_radius=20, door_height=40)
+
