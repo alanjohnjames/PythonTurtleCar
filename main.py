@@ -50,8 +50,9 @@ def make_boot(wheel_base, door_height, wheel_radius):
     move_to_position(wheel_base/2 + 2*wheel_radius, 0)
     t.circle(door_height, 90)
 
-def make_roof(x,y):
-    pass
+def make_roof(wheel_base, door_height):
+    move_to_position(wheel_base/2, door_height)
+    t.circle(wheel_base/2, 180)
 
 def make_car(wheel_base, wheel_radius, door_height):
     half_wheel_base = wheel_base/2
@@ -71,6 +72,7 @@ def make_car(wheel_base, wheel_radius, door_height):
     make_bonnet(wheel_base, door_height)
     make_boot(wheel_base, door_height, wheel_radius)
 
+    make_roof(wheel_base, door_height)
 
 make_car(wheel_base=80, wheel_radius=20, door_height=40)
 
